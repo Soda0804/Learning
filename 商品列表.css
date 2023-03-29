@@ -1,0 +1,19 @@
+#div {
+    width: 200px;
+    background-color:rgba(255,0,0,0.2);
+}
+
+#div li {
+    font-size: 12px;
+}
+
+#div .first {
+    font-size: 14px;
+    color: #5ee6c1;
+    font-weight: bold;
+    font-style: italic;
+    text-align:center;
+    text-decoration:line-through;
+    text-shadow: 5px 5px 2px rgb(66, 75, 179);
+}
+

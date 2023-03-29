@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>表格的基本结构</title>
+  </head>
+
+  <body>
+    <table
+      border="1"
+      width="400"
+      height="200"
+      background="img/img.webp"
+      cellspacing="10"
+    >
+      <tr></tr>
+      <th width="100" height="50">表头 1</th>
+      <th>表头 2</th>
+      <th>表头 3</th>
+      <tr>
+        <td>第一行 1</td>
+        <td>第一行 2</td>
+        <td>第一行 3</td>
+      </tr>
+      <tr>
+        <td>第二行 1</td>
+        <td>第二行 2</td>
+        <td>第二行 3</td>
+      </tr>
+    </table>
+
+    <table width="500">
+      <colgroup style="background-color: yellow">
+        <!--前两列为一组-->
+        <col />
+        <!--第一列-->
+        <col />
+        <!--第二列-->
+      </colgroup>
+      <col style="background-color: blue" />
+      <!--第三列-->
+      <caption>
+        表格标题
+      </caption>
+      <thead>
+        <tr>
+          <th>头 1</th>
+          <th>头 2</th>
+          <th>头 3</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>111</td>
+          <td>111</td>
+          <td>111</td>
+        </tr>
+        <tr>
+          <td>222</td>
+          <td>222</td>
+          <td>222</td>
+        </tr>
+        36 第3章 HTML5表格
+      </tbody>
+      <tfoot>
+        <tr>
+          <td>尾 1</td>
+          <td>尾 2</td>
+          <td>尾 3</td>
+        </tr>
+      </tfoot>
+    </table>
+  </body>
+</html>

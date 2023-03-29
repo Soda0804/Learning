@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>title</title>
+    <style type="text/css">
+      p:nth-child(2) {
+        /*选中父元素中的第二个子元素 p*/
+        font-weight: bold; /*加粗*/
+      }
+      p:first-of-type {
+        /*选中父元素中第一个同类型子元素*/
+        font-style: italic; /*倾斜*/
+      }
+      a:only-child {
+        /*选中父元素仅有的子元素 a*/
+        text-decoration: underline; /*下画线*/
+      }
+      p:empty {
+        /*选中没有任何子元素的 p 标签*/
+        height: 20px;
+        width: 200px;
+        background-color: yellow;
+      }
+    </style>
+  </head>
+  <body>
+    <div>
+      <p>第一个 p 标签</p>
+      <p>第二个 p 标签</p>
+      <p></p>
+      <!--没有子元素的 p 标签-->
+    </div>
+    <div><a>父元素中仅有子元素的 a</a></div>
+  </body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style type="text/css">
+      div {
+        width: 100px;
+        height: 100px;
+        background-color: rgb(246, 138, 138);
+      }
+
+      /* 通过设置单个属性的属性值进行修改*/
+      #div1 {
+        animation-name: frame1;
+        /*调用关键帧名称*/
+        animation-duration: 3s;
+        /*关键帧执行时间*/
+        animation-timing-function: ease;
+        /*使用 ease 效果渐变*/
+        animation-iteration-count: infinite;
+        /*动画播放无限次*/
+      }
+
+      /* 使用 animation 的缩写形式进行设置*/
+      #div2 {
+        animation: frame1 3s ease infinite;
+        /*动画与 div1 所述完全相同*/
+      }
+
+      @keyframes frame1 {
+        from {
+          width: 100px;
+        }
+
+        to {
+          width: 200px;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <div id="div1">这是一个 div1</div>
+    <div id="div2">这是一个 div2</div>
+  </body>
+</html>

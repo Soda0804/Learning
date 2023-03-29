@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <style type="text/css">
+        #testTransition {
+            width: 100px;
+            height: 20px;
+            background-color: rgb(135, 211, 239);
+            /* 宽度属性过渡效果，过渡时长 2s，延时 0.2s 开始执行 */
+            transition: width 2s .2s;
+            -moz-transition: width 2s .2s;
+            /*兼容 Firefox 浏览器，详见注解说明 */
+            -webkit-transition: width 2s .2s;
+            /*兼容 Safari 浏览器 */
+        }
+
+        #testTransition:hover {
+            width: 200px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="testTransition">zk是笨蛋
+    </div>
+</body>
+
+</html>

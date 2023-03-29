@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>表单</title>
+  </head>
+
+  <body>
+    <form action="form.php" method="post">
+      请输入内容:
+      <input name="text1" type="text" placeholder="请输入" value="1121" maxlength="7" />
+    </form>
+
+    <form action="form.php" method="post">
+      请输入内容:
+      <input name="text2" type="password" placeholder="请输入" value="" />
+    </form>
+
+    <form action="form.php" method="post">
+      <input type="radio" name="sex" value="男" checked="checked" />男
+      <input type="radio" name="sex" value="女" />女
+    </form>
+
+    <form action="form.php" method="post">
+      爱好选择：
+      <input type="checkbox" name="hobby" value="sing" checked="checked" />唱歌
+      <input type="checkbox" name="hobby" value="draw" checked="checked" />画画
+      <input type="checkbox" name="hobby" value="dance" />跳舞
+    </form>
+
+    <form action="form.php" method="post" enctype="multipart/form-data ">
+      <input type="file" />
+      <input type="submit" />
+    </form>
+    <form action="form.php" method="post">
+      <input type="text" value="输入框的默认值" />
+      <input type="text" placeholder="请输入" /> <input type="reset" />
+    </form>
+
+    <form action="form.php" method="post">
+      <input type="button" value="点我!" onclick="alert('这是一个按钮!')" />
+    </form>
+    <form action="form.php" method="post" size="5" multiple="multiple">
+      <select name="week">
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+        <option value="6">6</option>
+        <option value="7">7</option>
+      </select>
+    </form>
+
+    <form action="form.php" method="post">
+      <select name="city">
+        <optgroup label="山东省">
+          <option value="1" title="这是鼠标指上去后显示的文字，测试无效">
+            青岛
+          </option>
+          <option value="2" selected="selected">烟台</option>
+          <option value="3">济南</option>
+        </optgroup>
+        <optgroup label="北京市">
+          <option>海淀区</option>
+          <option>朝阳区</option>
+        </optgroup>
+      </select>
+    </form>
+
+    <form action="form.php" method="post">
+      <textarea style="width: 200px; height: 150px">这是文本域的内容</textarea>
+    </form>
+
+    <form action="form.php" method="post">
+      <button type="button" onclick="alert('按下后有弹窗')">
+        这是一个按钮
+      </button>
+    </form>
+
+    <form action="form.php" method="post">
+      <fieldset>
+        <legend>这是一个表单</legend>
+        其他表单控件
+      </fieldset>
+    </form>
+
+    <form action="form.php" method="post">
+      请输入:
+      <input type="text" list="list" />
+      <datalist id="list">
+        <option>123</option>
+        <option>abc</option>
+        <option>456</option>
+        <option>def</option>
+        <option>789</option>
+      </datalist>
+    </form>
+
+    <form>
+      拾色器:<input type="color" name="test" /><br /><br />
+      日期选择:<input type="date" name="test" /><br /><br />
+      电子邮件:<input type="email" name="test" /><br /><br />
+      数字输入框:<input type="number" name="test" /><br /><br />
+      滑块输入:<input type="range" name="test" /><br /><br />
+      搜索框:<input type="search" name="test" /><br /><br />
+    </form>
+  </body>
+</html>

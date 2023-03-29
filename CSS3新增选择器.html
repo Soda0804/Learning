@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>title</title>
+    <style type="text/css">
+      #div p[title] {
+        color: blue;
+      }
+      #div option[selected="selected"] {
+        /*选择具有 selected 属性且属性值等于 selected 的 option 元素。*/
+        color: white;
+      }
+      #div option[selected^="sel"] {
+        /*选择具有 selected 属性且属性值为以 sel 开头的字符串的 option 元素。*/
+        background-color: pink;
+      }
+      #div option[disabled$="led"] {
+        /*选择具有 disabled 属性且属性值为以 led 结尾的字符串的 option 元素。*/
+        background-color: greenyellow;
+      }
+      #div option[disabled*="ed"] {
+        /*选择具有 disabled 属性且属性值包含 ed 结尾的字符串的 option 元素。*/
+        font-weight: bold;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="div">
+      <p title="study">前端学习</p>
+      <select name="kuangjia">
+        <option>框架</option>
+        <option selected="selected">Bootstrap</option>
+        <option disabled="disabled">JQuery</option>
+        <option>AngularJS</option>
+      </select>
+    </div>
+  </body>
+</html>
