@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>显示日期和星期几</title>
+  </head>
+
+  <body>
+    <script>
+      // 获取当前日期
+      var today = new Date();
+
+      // 获取年份、月份、日期和星期几
+      var year = today.getYear();
+          year=year+1900;
+      var month = today.getMonth() + 1;
+      var date = today.getDate();
+      var day = today.getDay();
+
+      // 将星期几转换为中文
+      var weekdays = ["日", "一", "二", "三", "四", "五", "六"];
+      var weekday = weekdays[day];
+
+      // 将日期显示在页面上
+      document.write("今天是 " + year + "年" + month + "月" + date + "日 星期" + weekday);
+    </script>
+  </body>
+</html>

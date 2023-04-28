@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>setTimeout and clearTimeout Demo</title>
+  </head>
+  <body>
+    <h1>setTimeout and clearTimeout Demo</h1>
+    <p>Click the button below to see setTimeout and clearTimeout in action:</p>
+    <button onclick="startTimer()">Start Timer</button>
+    <button onclick="stopTimer()">Stop Timer</button>
+    <p id="timer"></p>
+    <script>
+      var timerId;
+
+      function startTimer() {
+        timerId = setTimeout(function () {
+          document.getElementById("timer").innerHTML = "Timer expired!";
+        }, 5000);
+      }
+
+      function stopTimer() {
+        clearTimeout(timerId);
+        document.getElementById("timer").innerHTML = "Timer stopped.";
+      }
+    </script>
+  </body>
+</html>
