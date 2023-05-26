@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>用户名密码校验程序</title>
+    <meta charset="UTF-8" />
+    <script>
+      // 定义校验函数
+      function validateForm() {
+        // 获取用户名和密码
+        var username = document.forms["loginForm"]["username"].value;
+        var password = document.forms["loginForm"]["password"].value;
+        // 判断用户名和密码是否为空
+        if (username == "" || password == "") {
+          alert("用户名和密码不能为空！");
+          return false;
+        }
+        // 判断用户名长度是否符合要求32
+        else if (username.length < 6 || username.length > 20) {
+          alert("用户名长度应在6-20个字符之间！");
+          return false;
+        }
+        // 判断密码长度是否符合要求
+        else if (password.length < 6 || password.length > 20) {
+          alert("密码长度应在6-20个字符之间！");
+          return false;
+        }
+        // 校验通过
+        else {
+          return true;
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <h1>用户名密码校验程序</h1>
+    <!-- 表单 -->
+    <form name="loginForm" onsubmit="return validateForm()" method="post">
+      <label for="username">用户名：</label>
+      <input type="text" id="username" name="username" /><br /><br />
+      <label for="password">密码：</label>
+      <input type="password" id="password" name="password" /><br /><br />
+      <input type="submit" value="登录" />
+    </form>
+  </body>
+</html>

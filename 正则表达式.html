@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Search Substrings with Regular Expressions</title>
+  </head>
+  <body>
+    <!-- 页面标题 -->
+    <h1>Search Substrings with Regular Expressions</h1>
+
+    <!-- 提示用户输入要搜索的字符串 -->
+    <p>Enter a string to search:</p>
+
+    <!-- 输入框用于输入要搜索的字符串 -->
+    <input type="text" id="inputString" />
+
+    <!-- 按钮用于启动搜索操作 -->
+    <button onclick="searchSubstrings()">Search</button>
+
+    <!-- 用于显示搜索结果 -->
+    <p id="output"></p>
+
+    <script>
+      function searchSubstrings() {
+        // 获取用户输入的字符串
+        let inputString = document.getElementById("inputString").value;
+
+        // 定义一个正则表达式来匹配元音字母
+        let regex = /[aeiou]/g; // search for vowels
+
+        // 使用 String.prototype.match() 方法在输入字符串中查找匹配项
+        let matches = inputString.match(regex);
+
+        // 如果找到匹配项，则将它们显示在页面上
+        if (matches) {
+          document.getElementById("output").innerHTML =
+            "Matches found: " + matches.join(", ");
+        }
+        // 否则，提示用户没有找到匹配项
+        else {
+          document.getElementById("output").innerHTML = "No matches found.";
+        }
+      }
+    </script>
+  </body>
+</html>

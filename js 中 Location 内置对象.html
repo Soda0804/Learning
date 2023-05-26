@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Location对象基本用法</title>
+  </head>
+  <body>
+    <h1>Location对象基本用法</h1>
+    <p>当前页面的URL为：<span id="current-url"></span></p>
+    <p>当前页面的hash为：<span id="current-hash"></span></p>
+    <p>当前页面的host为：<span id="current-host"></span></p>
+    <p>当前页面的hostname为：<span id="current-hostname"></span></p>
+    <p>当前页面的href为：<span id="current-href"></span></p>
+    <p>当前页面的pathname为：<span id="current-pathname"></span></p>
+    <p>当前页面的port为：<span id="current-port"></span></p>
+    <p>当前页面的protocol为：<span id="current-protocol"></span></p>
+
+    <script>
+      // 获取当前页面的URL
+      var currentUrl = window.location.href;
+      document.getElementById("current-url").innerHTML = currentUrl;
+
+      // 获取当前页面的hash
+      var currentHash = window.location.hash;
+      document.getElementById("current-hash").innerHTML = currentHash;
+
+      // 获取当前页面的host
+      var currentHost = window.location.host;
+      document.getElementById("current-host").innerHTML = currentHost;
+
+      // 获取当前页面的hostname
+      var currentHostname = window.location.hostname;
+      document.getElementById("current-hostname").innerHTML = currentHostname;
+
+      // 获取当前页面的href
+      var currentHref = window.location.href;
+      document.getElementById("current-href").innerHTML = currentHref;
+
+      // 获取当前页面的pathname
+      var currentPathname = window.location.pathname;
+      document.getElementById("current-pathname").innerHTML = currentPathname;
+
+      // 获取当前页面的port
+      var currentPort = window.location.port;
+      document.getElementById("current-port").innerHTML = currentPort;
+
+      // 获取当前页面的protocol
+      var currentProtocol = window.location.protocol;
+      document.getElementById("current-protocol").innerHTML = currentProtocol;
+    </script>
+  </body>
+</html>

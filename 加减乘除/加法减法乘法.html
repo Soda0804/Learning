@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>加法减法乘法除法计算验证</title>
+  <link rel="stylesheet" href="加法减法乘法计算验证.css" />
+  <script>
+    var correctCount = 0; // 初始化正确次数为0
+    var totalCount = 0; // 初始化总答题次数为0
+    var operation; // 当前运算类型
+
+    function generateRandomOperation() {
+      var operations = ["addition", "subtraction", "multiplication", "division"];
+      operation = operations[Math.floor(Math.random() * 4)]; // 随机选择运算类型
+      document.getElementById("operationSelect").selectedIndex = operations.indexOf(operation);
+      if (operation === "division") {
+        document.getElementById("yushuLabel").style.display = "block";
+        document.getElementById("resultyushu").style.display = "block";
+      } else {
+        document.getElementById("yushuLabel").style.display = "none";
+        document.getElementById("resultyushu").style.display = "none";
+      }
+    }
+
+    function generateNumbers() {
+      var num1, num2;
+      var label1, label2, labelResult;
+
+      if (operation === "addition") {
+        num1 = Math.floor(Math.random() * 101); // 生成0-100的随机数
+        num2 = Math.floor(Math.random() * 101); // 生成0-100的随机数
+        label1 = "第一个加数：";
+        label2 = "第二个加数：";
+        labelResult = "和：";
+      } else if (operation === "subtraction") {
+        num1 = Math.floor(Math.random() * 101); // 生成0-100的随机数
+        num2 = Math.floor(Math.random() * (num1 + 1)); // 生成0-num1的随机数
+        label1 = "被减数：";
+        label2 = "减数：";
+        labelResult = "差：";
+      } else if (operation === "multiplication") {
+        num1 = Math.floor(Math.random() * 101); // 生成0-100的随机数
+        num2 = Math.floor(Math.random() * 101); // 生成0-100的随机数
+        label1 = "第一个因数：";
+        label2 = "第二个因数：";
+        labelResult = "积：";
+      } else if (operation === "division") {
+        num1 = Math.floor(Math.random() * 101); // 生成0-100的随机数
+        num2 = Math.floor(Math.random() * 100) + 1; // 生成0-num1的随机数
+        label1 = "被除数：";
+        label2 = "除数：";
+        labelResult = "商：";
+      }
+
+      updateLabels(label1, label2, labelResult);
+      updateInputValues(num1, num2, "", "");
+
+      // 禁用生成新题目按钮，启用验证按钮
+      setButtonDisabled("validateBtn", false);
+      setButtonDisabled("generateBtn", true);
+    }
+
+    function validate() {
+      var resultInput = document.getElementById("result").value.trim(); // 获取id为result的文本框的值，并去除两端的空白字符，将处理后的结果存储在变量resultInput中。
+      if (resultInput === "") {
+        alert("结果不能为空！");
+        return;
+      }
+
+      var num1 = parseInt(document.getElementById("num1").value);
+      var num2 = parseInt(document.getElementById("num2").value);
+      var result = parseInt(resultInput);
+      var resultyushu = parseInt(document.getElementById("resultyushu").value);
+
+      var isCorrect = false;
+      if (operation === "addition") {
+        isCorrect = num1 + num2 === result;
+      } else if (operation === "subtraction") {
+        isCorrect = num1 - num2 === result;
+      } else if (operation === "multiplication") {
+        isCorrect = num1 * num2 === result;
+      } else if (operation === "division") {
+        isCorrect = result * num2 + resultyushu === num1;
+      }
+
+      if (isCorrect) {
+        alert("计算正确！");
+        correctCount++; // 正确次数加1
+      } else {
+        alert("计算错误！");
+      }
+      totalCount++; // 总答题次数加1
+      updateCounts(correctCount, totalCount);
+
+      // 禁用验证按钮，启用生成新题目按钮
+      setButtonDisabled("validateBtn", true);
+      setButtonDisabled("generateBtn", false);
+    }
+
+    function handleKeyPress(event) {
+      if (event.key === "Enter") {
+        event.preventDefault(); // 阻止默认的回车键行为
+        validate();
+      } else if (event.key === "Tab") {
+        event.preventDefault(); // 阻止默认的 Tab 键行为
+        generateRandomOperation();
+        generateNumbers();
+      }
+    }
+
+    function updateLabels(label1, label2, labelResult) {
+      document.getElementById("num1Label").textContent = label1;
+      document.getElementById("num2Label").textContent = label2;
+      document.getElementById("resultLabel").textContent = labelResult;
+    }
+
+    function updateInputValues(num1, num2, result, resultyushu) {
+      document.getElementById("num1").value = num1;
+      document.getElementById("num2").value = num2;
+      document.getElementById("result").value = result;
+      document.getElementById("resultyushu").value = resultyushu;
+    }
+
+    function updateCounts(correctCount, totalCount) {
+      document.getElementById("correctCount").innerText = "正确次数：" + correctCount;
+      document.getElementById("errorCount").innerText = "错误次数：" + (totalCount - correctCount);
+      document.getElementById("totalCount").innerText = "总答题次数：" + totalCount;
+    }
+
+    function setButtonDisabled(buttonId, disabled) {
+      document.getElementById(buttonId).disabled = disabled;
+    }
+
+    // 页面加载时调用该函数
+    window.onload = function () {
+      generateRandomOperation();
+      generateNumbers(); // 生成第一组随机数
+
+      // 启用验证按钮，禁用生成新题目按钮
+      setButtonDisabled("validateBtn", false);
+      setButtonDisabled("generateBtn", true);
+
+      // 监听键盘按键事件
+      document.addEventListener("keydown", handleKeyPress);
+    };
+  </script>
+</head>
+
+<body>
+  <div class="container">
+    <h1>加法减法乘法计算验证</h1>
+    <div class="operation-select">
+      <label for="operationSelect">当前运算类型：</label>
+      <select id="operationSelect" onchange="generateRandomOperation(); generateNumbers()">
+        <option value="addition">加法计算验证</option>
+        <option value="subtraction">减法计算验证</option>
+        <option value="multiplication">乘法计算验证</option>
+        <option value="division">除法计算验证</option>
+      </select>
+    </div>
+    <br />
+    <label id="num1Label" for="num1">第一个加数：</label>
+    <input type="text" id="num1" readonly /><br />
+    <label id="num2Label" for="num2">第二个加数：</label>
+    <input type="text" id="num2" readonly /><br />
+    <label id="resultLabel" for="result">和：</label>
+    <input type="text" id="result" /><br />
+    <label id="yushuLabel" for="resultyushu" style="display:none">余数：</label>
+    <input type="text" id="resultyushu" style="display:none" /><br />
+    <button id="validateBtn" onclick="validate()">验证</button>
+    <button id="generateBtn" onclick="generateRandomOperation(); generateNumbers()">
+      生成新题目
+    </button>
+    <div id="counts">
+      <p id="correctCount">正确次数：0</p>
+      <p id="errorCount">错误次数：0</p>
+      <p id="totalCount">总答题次数：0</p>
+    </div>
+  </div>
+</body>
+
+</html>

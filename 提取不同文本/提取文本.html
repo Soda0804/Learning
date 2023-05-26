@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>文本提取工具</title>
+    <link rel="stylesheet" href="提取文本.css" />
+    <script type="text/javascript">
+        function extractChinese() {
+            var inputText = document.getElementById("inputText").value;
+            var result = "";
+            for (var i = 0; i < inputText.length; i++) {
+                var charCode = inputText.charCodeAt(i);
+                if (charCode >= 19968 && charCode <= 40869) { // 判断字符是否是中文
+                    result += inputText[i];
+                }
+            }
+            document.getElementById("outputText").value = result;
+            document.getElementById("extractType").innerHTML = "提取类型：中文";
+            document.getElementById("charCount").innerHTML = "字符数：" + result.length;
+        }
+
+        function extractEnglish() {
+            var inputText = document.getElementById("inputText").value;
+            var result = "";
+            for (var i = 0; i < inputText.length; i++) {
+                var charCode = inputText.charCodeAt(i);
+                if ((charCode >= 65 && charCode <= 90) || (charCode >= 97 && charCode <= 122)) { // 判断字符是否是英文
+                    result += inputText[i];
+                }
+            }
+            document.getElementById("outputText").value = result;
+            document.getElementById("extractType").innerHTML = "提取类型：英文";
+            document.getElementById("charCount").innerHTML = "字符数：" + result.length;
+        }
+
+        function extractNumbers() {
+            var inputText = document.getElementById("inputText").value;
+            var result = "";
+            for (var i = 0; i < inputText.length; i++) {
+                var charCode = inputText.charCodeAt(i);
+                if (charCode >= 48 && charCode <= 57) { // 判断字符是否是数字
+                    result += inputText[i];
+                }
+            }
+            document.getElementById("outputText").value = result;
+            document.getElementById("extractType").innerHTML = "提取类型：数字";
+            document.getElementById("charCount").innerHTML = "字符数：" + result.length;
+        }
+
+        function extractSymbols() {
+            var inputText = document.getElementById("inputText").value;
+            var result = "";
+            for (var i = 0; i < inputText.length; i++) {
+                var charCode = inputText.charCodeAt(i);
+                if ((charCode >= 33 && charCode <= 47) || (charCode >= 58 && charCode <= 64) || (charCode >= 91 && charCode <= 96) || (charCode >= 123 && charCode <= 126)) { // 判断字符是否是符号
+                    result += inputText[i];
+                }
+            }
+            document.getElementById("outputText").value = result;
+            document.getElementById("extractType").innerHTML = "提取类型：符号";
+            document.getElementById("charCount").innerHTML = "字符数：" + result.length;
+        }
+    </script>
+</head>
+
+<body>
+    <h2>文本提取工具</h2>
+    <label for="inputText">输入文本：</label>
+    <br>
+    <textarea id="inputText" rows="5" cols="50"></textarea>
+    <br>
+    <button onclick="extractChinese()">提取中文</button>
+    <button onclick="extractEnglish()">提取英文</button>
+    <button onclick="extractNumbers()">提取数字</button>
+    <button onclick="extractSymbols()">提取符号</button>
+    <br>
+    <label for="outputText">提取结果：</label>
+    <br>
+    <textarea id="outputText" rows="5" cols="50" readonly></textarea>
+    <br>
+    <label id="extractType"></label>
+    <br>
+    <label id="charCount"></label>
+</body>
+
+</html>
